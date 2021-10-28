@@ -9,15 +9,16 @@ var version = String(removed.splice(10, 1)).replace("_", ".").replace("_", "")
 var versionnumber = Number(version)
 var versiondisplay = String(agent.split(/(\s+)/).splice(0, 15).splice(10, 1)).replace("_", ".").replace("_", ".")
 
-if (removed.includes('iPhone')) {
-    console.log("iOS found!")
-} else {
-    console.log("Not iPhone")
-}
-
 function iOSVersion() {
     console.log(removed)
-    document.getElementById("version").innerHTML = versiondisplay
+    if (removed.includes('iPhone')) {
+        console.log("iOS found!")
+        document.getElementById("version").innerHTML = versiondisplay
+    } else {
+        console.log("Not iPhone")
+        versiondisplay = "Not an iOS Device!"
+        document.getElementById("version").innerHTML = versiondisplay
+    }
 }
 
 $(document).ready(function () {
