@@ -34,10 +34,12 @@ function Jailbreak() {
     var status = document.getElementById("status")
     if (versionnumber <= Number("14.51")) {
         status.innerHTML = "You can jailbreak with the tools under:"
+    } else if (versionnumber <= Number("15.01")) {
+        status.innerHTML = "A jailbreak is not available for your device, BUT there is an exploitable bug compatible:"
     } else {
         status.innerHTML = "Sorry, but you cannot jailbreak your device."
     }
-}
+    }
 
 function getUserAgent() {
     document.getElementById("useragent").innerHTML = agent
